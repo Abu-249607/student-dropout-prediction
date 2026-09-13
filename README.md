@@ -6,7 +6,7 @@
 
 > A machine learning system to predict student dropout risk and enable early intervention strategies in higher education.
 
-## 📋 Table of Contents
+## Table of Contents
 
 - [Overview](#overview)
 - [Business Problem](#business-problem)
@@ -22,13 +22,13 @@
 - [Future Work](#future-work)
 - [Author](#author)
 
-## 🎯 Overview
+## Overview
 
 Student dropout is a critical challenge for higher education institutions, impacting both student success and institutional performance. This project develops a **predictive analytics solution** to identify at-risk students early in their academic journey, enabling timely interventions that improve retention rates.
 
 Using machine learning classification models trained on student demographics, academic performance, family background, and macroeconomic factors, the system predicts dropout probability and assigns risk levels to guide institutional support programs.
 
-## 💼 Business Problem
+## Business Problem
 
 ### Challenge
 - **Student retention** directly affects graduation rates and institutional reputation
@@ -48,7 +48,7 @@ A data-driven early warning system that:
 - **Data-driven policy decisions** for institutional programs
 - **Enhanced student success outcomes** and graduation metrics
 
-## 📊 Dataset
+## Dataset
 
 ### Overview
 - **Size**: 4,424 student records (3,403 after preprocessing and outlier removal)
@@ -85,7 +85,7 @@ A data-driven early warning system that:
 
 Binary target (Dropout vs. Not Dropout): **32% / 68%** split
 
-## 🔬 Methodology
+## Methodology
 
 ### 1. Data Preprocessing
 - **Column standardization**: Cleaned and normalized feature names
@@ -127,7 +127,7 @@ Comprehensive evaluation metrics:
 - Created prediction pipeline for new students
 - Developed risk scoring system (Low/Medium/High)
 
-## 🔍 Key Findings
+## Key Findings
 
 ### 1. Academic Performance is Critical
 - **First semester grades** are the strongest predictor of dropout risk
@@ -149,7 +149,7 @@ Comprehensive evaluation metrics:
 - Risk assessment at semester end enables timely intervention before second semester
 - Combined academic + financial indicators yield strongest predictions
 
-## 📈 Results
+## Results
 
 ### Model Performance
 
@@ -187,7 +187,7 @@ avoiding false alarms.
 
 *Full feature importance available in `results/feature_importance.csv`*
 
-## 📸 Sample Visualizations
+## Sample Visualizations
 
 The analysis generates 7 professional visualizations saved in the `visualizations/` directory:
 
@@ -201,7 +201,7 @@ The analysis generates 7 professional visualizations saved in the `visualization
 
 *View all visualizations in the `visualizations/` folder after running the analysis.*
 
-## ⚙️ Installation
+## Installation
 
 ### Prerequisites
 - Python 3.8 or higher
@@ -234,7 +234,7 @@ pip install -r requirements.txt
 - Place `Dropout.xlsx` in the `data/` directory
 - See `data/README.md` for data requirements
 
-## 🚀 Usage
+## Usage
 
 ### Option 1: Automated Analysis (Recommended)
 
@@ -297,7 +297,7 @@ model = joblib.load('models/dropout_prediction_model.pkl')
 # ... your code here
 ```
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 student-dropout-prediction/
@@ -339,7 +339,7 @@ student-dropout-prediction/
 └── 🚫 .gitignore                          # Git ignore rules
 ```
 
-## 📊 Model Performance
+## Model Performance
 
 ### Classification Metrics Explained
 
@@ -356,7 +356,7 @@ student-dropout-prediction/
 
 This project prioritizes **recall** (catching at-risk students) while maintaining acceptable precision to avoid overwhelming support resources.
 
-## 🛠️ Technologies Used
+##  Technologies Used
 
 ### Core Libraries
 - **pandas** (2.0.3): Data manipulation and analysis
@@ -374,7 +374,7 @@ This project prioritizes **recall** (catching at-risk students) while maintainin
 ### Deployment
 - **joblib** (1.3.1): Model serialization
 
-## 🔮 Future Work
+## Future Work
 
 ### Model Improvements
 - [ ] **Hyperparameter tuning** using GridSearchCV or RandomizedSearchCV
@@ -402,28 +402,27 @@ This project prioritizes **recall** (catching at-risk students) while maintainin
 - [ ] **Longitudinal study** tracking intervention outcomes
 - [ ] **Segmentation analysis** for targeted support programs
 
-## 📚 References & Resources
+## References & Resources
 
 - **Dataset Source**: [Specify original source if applicable]
 - **Scikit-learn Documentation**: https://scikit-learn.org/
 - **Educational Data Mining**: https://educationaldatamining.org/
 
-## 👤 Author
+## Author
 
 **[Your Name]**
 Graduate Student | Management Science & Business Analytics
 Suffolk University
 
-- 📧 Email: [your.email@example.com]
-- 💼 LinkedIn: [Your LinkedIn Profile]
-- 🌐 Portfolio: [Your Portfolio Website]
-- 📂 GitHub: [@yourusername](https://github.com/yourusername)
+- Email: [abhishek.ssubramani@gmail.com]
+- LinkedIn: [https://www.linkedin.com/in/abhisheksubramani/
+- 📂 GitHub: [@yourusername](https://github.com/Abu-249607)
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - Suffolk University for the academic foundation in analytics
 - [Data source attribution if applicable]
@@ -431,9 +430,9 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ---
 
-**⭐ If you found this project helpful, please consider giving it a star!**
+** If you found this project helpful, please consider giving it a star!**
 
-**💡 Questions or suggestions? Open an issue or reach out directly.**
+** Questions or suggestions? Open an issue or reach out directly.**
 
 ---
 
