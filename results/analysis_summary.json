@@ -1,0 +1,50 @@
+{
+  "analysis_date": "2026-09-13 17:19:48",
+  "dataset": {
+    "total_records": 4424,
+    "after_cleaning": 3403,
+    "features": 41,
+    "dropout_count": 633,
+    "dropout_percentage": 18.601234205113133
+  },
+  "best_model": {
+    "name": "Gradient Boosting",
+    "accuracy": 0.882525697503671,
+    "precision": 0.7640449438202247,
+    "recall": 0.5354330708661418,
+    "f1_score": 0.6296296296296297,
+    "auc_roc": 0.8687853548992296
+  },
+  "all_models": {
+    "Accuracy": {
+      "Logistic Regression": 0.8737151248164464,
+      "Decision Tree": 0.8355359765051396,
+      "Random Forest": 0.882525697503671,
+      "Gradient Boosting": 0.882525697503671
+    },
+    "Precision": {
+      "Logistic Regression": 0.735632183908046,
+      "Decision Tree": 0.5590551181102362,
+      "Random Forest": 0.7901234567901234,
+      "Gradient Boosting": 0.7640449438202247
+    },
+    "Recall": {
+      "Logistic Regression": 0.5039370078740157,
+      "Decision Tree": 0.5590551181102362,
+      "Random Forest": 0.5039370078740157,
+      "Gradient Boosting": 0.5354330708661418
+    },
+    "F1-Score": {
+      "Logistic Regression": 0.5981308411214953,
+      "Decision Tree": 0.5590551181102362,
+      "Random Forest": 0.6153846153846154,
+      "Gradient Boosting": 0.6296296296296297
+    },
+    "AUC-ROC": {
+      "Logistic Regression": 0.848588646635777,
+      "Decision Tree": 0.735452969100884,
+      "Random Forest": 0.8660280280849371,
+      "Gradient Boosting": 0.8687853548992296
+    }
+  }
+}

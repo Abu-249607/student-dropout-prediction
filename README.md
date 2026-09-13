@@ -428,14 +428,13 @@ This project prioritizes **recall** (catching at-risk students) while maintainin
 
 ## Author
 
-**[Your Name]**
+**Abhishek Subramani**
 Graduate Student | Management Science & Business Analytics
 Suffolk University
 
-- Email: [your.email@example.com]
-- LinkedIn: [Your LinkedIn Profile]
-- Portfolio: [Your Portfolio Website]
-- GitHub: [@yourusername](https://github.com/yourusername)
+- Email: abhishek.ssubramani@gmail.com
+- LinkedIn: [abhisheksubramani](https://www.linkedin.com/in/abhisheksubramani/)
+- GitHub: [@Abu-249607](https://github.com/Abu-249607)
 
 ## License
 
@@ -452,7 +451,3 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 **If you found this project helpful, please consider giving it a star!**
 
 **Questions or suggestions? Open an issue or reach out directly.**
-
----
-
-*Last Updated: January 2026*
