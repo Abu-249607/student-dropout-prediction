@@ -1,8 +1,17 @@
+# Secrets - never commit
+.env
+.env.*
+*.pem
+*.key
+credentials.json
+
 # Data files (privacy protection)
-data/*.xlsx
-data/*.csv
-data/*.json
-data/*.parquet
+data/**/*.xlsx
+data/**/*.csv
+data/**/*.json
+data/**/*.parquet
+data/**/*.db
+cache/
 
 # Model artifacts
 models/*.pkl
