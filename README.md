@@ -443,7 +443,6 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## Acknowledgments
 
 - Suffolk University for the academic foundation in analytics
-- [Data source attribution if applicable]
 - Open-source community for the excellent Python libraries
 
 ---
