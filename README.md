@@ -155,16 +155,23 @@ Comprehensive evaluation metrics:
 
 | Model | Accuracy | Precision | Recall | F1-Score | AUC-ROC |
 |-------|----------|-----------|--------|----------|---------|
-| Logistic Regression | 87.2% | 73.3% | 49.6% | 0.592 | 0.848 |
+| Logistic Regression | 87.4% | 73.6% | 50.4% | 0.598 | 0.849 |
 | Decision Tree | 83.6% | 55.9% | 55.9% | 0.559 | 0.736 |
-| Random Forest | 88.1% | 78.1% | 50.4% | 0.612 | 0.866 |
-| **Gradient Boosting** | **87.4%** | **71.1%** | **54.3%** | **0.616** | **0.873** |
+| Random Forest | 88.3% | 79.0% | 50.4% | 0.615 | 0.866 |
+| **Gradient Boosting** | **88.3%** | **76.4%** | **53.5%** | **0.630** | **0.869** |
+
+Produced with scikit-learn 1.3.0 on Python 3.11. Tree ensembles shift by a few
+tenths of a percent across scikit-learn versions, so your run may differ slightly.
 
 ### Best Model: Gradient Boosting
-- **AUC-ROC**: 0.873 (excellent discrimination between dropout and non-dropout students)
-- **Accuracy**: 87.4% (overall correctness)
-- **Precision**: 71.1% (reliable identification of at-risk students)
-- **Recall**: 54.3% (captures over half of actual dropouts for early intervention)
+- **AUC-ROC**: 0.869 (strong separation between dropout and non-dropout students)
+- **Accuracy**: 88.3% (overall correctness)
+- **Precision**: 76.4% (three of every four flagged students do drop out)
+- **Recall**: 53.5% (captures just over half of actual dropouts)
+
+Random Forest matches on accuracy but trails on recall and F1, so Gradient
+Boosting is selected — catching more at-risk students matters more here than
+avoiding false alarms.
 
 ### Feature Importance (Top 10)
 1. Curricular units 1st semester grade
@@ -188,7 +195,7 @@ The analysis generates 7 professional visualizations saved in the `visualization
 - **Correlation Heatmap** - Feature relationship analysis
 - **Feature Comparison** - Dropout vs. Non-Dropout distributions
 - **Confusion Matrix** - Model prediction accuracy
-- **ROC Curve** - Model performance visualization (AUC: 0.873)
+- **ROC Curve** - Model performance visualization (AUC: 0.869)
 - **Model Comparison** - Performance across all algorithms
 - **Feature Importance** - Top 20 predictive features
 
@@ -208,7 +215,11 @@ git clone https://github.com/Abu-249607/student-dropout-prediction.git
 cd student-dropout-prediction
 ```
 
-2. **Create virtual environment** (recommended)
+2. **Create a virtual environment**
+
+Do this before installing. Installing into a base Anaconda or system Python
+will change versions other projects depend on.
+
 ```bash
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
