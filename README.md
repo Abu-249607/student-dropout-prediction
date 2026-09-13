@@ -320,41 +320,41 @@ model = joblib.load('models/dropout_prediction_model.pkl')
 ```
 student-dropout-prediction/
 │
-├── 📁 data/
-│   ├── README.md                          # Data documentation
-│   └── Dropout.xlsx                       # Dataset (add locally, excluded from git)
+├── data/
+│   ├── README.md                       # Data documentation
+│   └── Dropout.xlsx                    # Dataset (add locally, excluded from git)
 │
-├── 📁 models/
-│   ├── README.md                          # Model documentation
-│   ├── dropout_prediction_model.pkl       # Trained model (generated)
-│   ├── feature_scaler.pkl                 # Feature scaler (generated)
-│   ├── feature_names.pkl                  # Feature list (generated)
-│   └── scale_features.pkl                 # Scaling configuration (generated)
+├── models/
+│   ├── README.md                       # Model documentation
+│   ├── dropout_prediction_model.pkl    # Trained model (generated)
+│   ├── feature_scaler.pkl              # Feature scaler (generated)
+│   ├── feature_names.pkl               # Feature list (generated)
+│   └── scale_features.pkl              # Scaling configuration (generated)
 │
-├── 📁 results/
-│   ├── ANALYSIS_REPORT.md                 # Complete analysis summary (generated)
-│   ├── analysis_summary.json              # Machine-readable results (generated)
-│   ├── model_comparison.csv               # Performance metrics (generated)
-│   └── feature_importance.csv             # Feature rankings (generated)
+├── results/
+│   ├── ANALYSIS_REPORT.md              # Analysis summary (generated)
+│   ├── analysis_summary.json           # Machine-readable results (generated)
+│   ├── model_comparison.csv            # Performance metrics (generated)
+│   └── feature_importance.csv          # Feature rankings (generated)
 │
-├── 📁 visualizations/
-│   ├── 01_target_distribution.png         # Generated visualization
-│   ├── 02_correlation_heatmap.png         # Generated visualization
-│   ├── 03_feature_comparison.png          # Generated visualization
-│   ├── 04_confusion_matrix.png            # Generated visualization
-│   ├── 05_roc_curve.png                   # Generated visualization
-│   ├── 06_model_comparison.png            # Generated visualization
-│   └── 07_feature_importance.png          # Generated visualization
+├── visualizations/
+│   ├── 01_target_distribution.png      # Class balance
+│   ├── 02_correlation_heatmap.png      # Feature correlations
+│   ├── 03_feature_comparison.png       # Distributions by dropout status
+│   ├── 04_confusion_matrix.png         # Test set predictions
+│   ├── 05_roc_curve.png                # Model discrimination
+│   ├── 06_model_comparison.png         # All four algorithms
+│   └── 07_feature_importance.png       # Top 20 predictors
 │
-├── 📓 student_dropout_prediction.ipynb    # Jupyter notebook analysis
-├── 🐍 run_analysis.py                     # Automated analysis script
-├── 🐍 utils.py                            # Helper functions module
-├── 🐍 predict.py                          # Prediction script
-├── 📋 requirements.txt                    # Python dependencies
-├── 📖 DATA_DICTIONARY.md                  # Feature documentation
-├── 📖 README.md                           # This file
-├── 📄 LICENSE                             # MIT License
-└── 🚫 .gitignore                          # Git ignore rules
+├── student_dropout_prediction.ipynb    # Notebook walkthrough
+├── run_analysis.py                     # End-to-end analysis pipeline
+├── utils.py                            # Shared helper functions
+├── predict.py                          # Score new students
+├── requirements.txt                    # Python dependencies
+├── DATA_DICTIONARY.md                  # Feature documentation
+├── README.md                           # This file
+├── LICENSE                             # MIT License
+└── .gitignore                          # Git ignore rules
 ```
 
 ## 📊 Model Performance
