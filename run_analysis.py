@@ -78,22 +78,22 @@ print("="*80)
 try:
     df_raw = load_data('data/Dropout.xlsx')
 except FileNotFoundError:
-    print("\n❌ ERROR: data/Dropout.xlsx not found!")
+    print("\nERROR: data/Dropout.xlsx not found!")
     print("\nPlease place your Dropout.xlsx file in the data/ directory.")
     print("Then run this script again: python run_analysis.py")
     sys.exit(1)
 
 # Clean column names
 df = clean_column_names(df_raw)
-print("✓ Column names cleaned")
+print("Column names cleaned")
 
 # Create binary target
 df = create_binary_target(df)
-print("✓ Binary target created")
+print("Binary target created")
 
 # Identify feature types
 num_features, cat_features = identify_feature_types(df)
-print(f"✓ Identified {len(num_features)} numerical and {len(cat_features)} categorical features")
+print(f"Identified {len(num_features)} numerical and {len(cat_features)} categorical features")
 
 # Handle outliers
 outlier_check_features = [
@@ -107,8 +107,8 @@ outlier_check_features = [
 outlier_stats = detect_outliers_iqr(df, outlier_check_features, threshold=3)
 df_clean = remove_outliers(df, outlier_stats)
 
-print(f"✓ Removed {len(df) - len(df_clean)} outliers ({((len(df) - len(df_clean))/len(df)*100):.2f}%)")
-print(f"✓ Final dataset: {len(df_clean)} rows × {df_clean.shape[1]} columns")
+print(f"Removed {len(df) - len(df_clean)} outliers ({((len(df) - len(df_clean))/len(df)*100):.2f}%)")
+print(f"Final dataset: {len(df_clean)} rows × {df_clean.shape[1]} columns")
 
 # ==============================================================================
 # 2. EXPLORATORY DATA ANALYSIS & VISUALIZATIONS
@@ -140,7 +140,7 @@ for i, v in enumerate(dropout_pct.values):
 plt.tight_layout()
 plt.savefig('visualizations/01_target_distribution.png', dpi=300, bbox_inches='tight')
 plt.close()
-print("✓ Saved: visualizations/01_target_distribution.png")
+print("Saved: visualizations/01_target_distribution.png")
 
 # Key numerical features analysis
 key_numerical = [
@@ -164,7 +164,7 @@ if key_numerical:
     plt.tight_layout()
     plt.savefig('visualizations/02_correlation_heatmap.png', dpi=300, bbox_inches='tight')
     plt.close()
-    print("✓ Saved: visualizations/02_correlation_heatmap.png")
+    print("Saved: visualizations/02_correlation_heatmap.png")
 
 # Boxplots by target
 interesting_features = [
@@ -197,7 +197,7 @@ if interesting_features:
     plt.tight_layout()
     plt.savefig('visualizations/03_feature_comparison.png', dpi=300, bbox_inches='tight')
     plt.close()
-    print("✓ Saved: visualizations/03_feature_comparison.png")
+    print("Saved: visualizations/03_feature_comparison.png")
 
 # ==============================================================================
 # 3. FEATURE ENGINEERING
@@ -208,7 +208,7 @@ print("="*80)
 
 df_engineered = engineer_features(df_clean)
 new_features = [col for col in df_engineered.columns if col not in df_clean.columns]
-print(f"✓ Created {len(new_features)} new features:")
+print(f"Created {len(new_features)} new features:")
 for feat in new_features:
     print(f"  - {feat}")
 
@@ -220,16 +220,16 @@ print("STEP 4: MODEL PREPARATION")
 print("="*80)
 
 X, y, feature_names, scale_features = prepare_features_for_modeling(df_engineered)
-print(f"✓ Feature matrix: {X.shape}")
-print(f"✓ Target shape: {y.shape}")
-print(f"✓ Features to scale: {len(scale_features)}")
+print(f"Feature matrix: {X.shape}")
+print(f"Target shape: {y.shape}")
+print(f"Features to scale: {len(scale_features)}")
 
 # Train-test split
 X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.2, random_state=RANDOM_STATE, stratify=y
 )
-print(f"✓ Training set: {X_train.shape}")
-print(f"✓ Test set: {X_test.shape}")
+print(f"Training set: {X_train.shape}")
+print(f"Test set: {X_test.shape}")
 
 # Scale features
 scaler = StandardScaler()
@@ -239,7 +239,7 @@ X_test_scaled = X_test.copy()
 if scale_features:
     X_train_scaled[scale_features] = scaler.fit_transform(X_train[scale_features])
     X_test_scaled[scale_features] = scaler.transform(X_test[scale_features])
-    print(f"✓ Scaled {len(scale_features)} features")
+    print(f"Scaled {len(scale_features)} features")
 
 # ==============================================================================
 # 5. MODEL TRAINING AND EVALUATION
@@ -287,8 +287,8 @@ for name, model in models.items():
         'AUC-ROC': auc_roc
     }
 
-    print(f"  ✓ Accuracy: {accuracy:.4f}")
-    print(f"  ✓ AUC-ROC: {auc_roc:.4f}")
+    print(f"  Accuracy: {accuracy:.4f}")
+    print(f"  AUC-ROC: {auc_roc:.4f}")
 
 # Results dataframe
 results_df = pd.DataFrame(results).T
@@ -299,7 +299,7 @@ print(results_df.round(4))
 
 # Save results
 results_df.to_csv('results/model_comparison.csv')
-print("\n✓ Saved: results/model_comparison.csv")
+print("\nSaved: results/model_comparison.csv")
 
 # ==============================================================================
 # 6. VISUALIZATIONS - MODEL PERFORMANCE
@@ -314,7 +314,7 @@ best_model = models[best_model_name]
 best_pred = model_predictions[best_model_name]['y_pred']
 best_pred_proba = model_predictions[best_model_name]['y_pred_proba']
 
-print(f"✓ Best model: {best_model_name} (AUC-ROC: {results_df.loc[best_model_name, 'AUC-ROC']:.4f})")
+print(f"Best model: {best_model_name} (AUC-ROC: {results_df.loc[best_model_name, 'AUC-ROC']:.4f})")
 
 # Confusion Matrix
 cm = confusion_matrix(y_test, best_pred)
@@ -331,7 +331,7 @@ plt.xlabel('Predicted', fontsize=12)
 plt.tight_layout()
 plt.savefig('visualizations/04_confusion_matrix.png', dpi=300, bbox_inches='tight')
 plt.close()
-print("✓ Saved: visualizations/04_confusion_matrix.png")
+print("Saved: visualizations/04_confusion_matrix.png")
 
 # ROC Curve
 fpr, tpr, _ = roc_curve(y_test, best_pred_proba)
@@ -350,7 +350,7 @@ plt.grid(alpha=0.3)
 plt.tight_layout()
 plt.savefig('visualizations/05_roc_curve.png', dpi=300, bbox_inches='tight')
 plt.close()
-print("✓ Saved: visualizations/05_roc_curve.png")
+print("Saved: visualizations/05_roc_curve.png")
 
 # Model Comparison Bar Chart
 fig, axes = plt.subplots(1, 2, figsize=(16, 6))
@@ -375,7 +375,7 @@ axes[1].grid(axis='x', alpha=0.3)
 plt.tight_layout()
 plt.savefig('visualizations/06_model_comparison.png', dpi=300, bbox_inches='tight')
 plt.close()
-print("✓ Saved: visualizations/06_model_comparison.png")
+print("Saved: visualizations/06_model_comparison.png")
 
 # Feature Importance (for Logistic Regression)
 if 'Logistic Regression' in models:
@@ -402,11 +402,11 @@ if 'Logistic Regression' in models:
     plt.tight_layout()
     plt.savefig('visualizations/07_feature_importance.png', dpi=300, bbox_inches='tight')
     plt.close()
-    print("✓ Saved: visualizations/07_feature_importance.png")
+    print("Saved: visualizations/07_feature_importance.png")
 
     # Save feature importance to CSV
     feature_importance.to_csv('results/feature_importance.csv', index=False)
-    print("✓ Saved: results/feature_importance.csv")
+    print("Saved: results/feature_importance.csv")
 
 # ==============================================================================
 # 7. SAVE MODEL ARTIFACTS
@@ -416,16 +416,16 @@ print("STEP 7: SAVING MODEL ARTIFACTS")
 print("="*80)
 
 joblib.dump(best_model, 'models/dropout_prediction_model.pkl')
-print(f"✓ Saved: models/dropout_prediction_model.pkl ({best_model_name})")
+print(f"Saved: models/dropout_prediction_model.pkl ({best_model_name})")
 
 joblib.dump(scaler, 'models/feature_scaler.pkl')
-print("✓ Saved: models/feature_scaler.pkl")
+print("Saved: models/feature_scaler.pkl")
 
 joblib.dump(feature_names, 'models/feature_names.pkl')
-print("✓ Saved: models/feature_names.pkl")
+print("Saved: models/feature_names.pkl")
 
 joblib.dump(scale_features, 'models/scale_features.pkl')
-print("✓ Saved: models/scale_features.pkl")
+print("Saved: models/scale_features.pkl")
 
 # ==============================================================================
 # 8. GENERATE SUMMARY REPORT
@@ -457,7 +457,7 @@ summary = {
 with open('results/analysis_summary.json', 'w') as f:
     json.dump(summary, f, indent=2)
 
-print("✓ Saved: results/analysis_summary.json")
+print("Saved: results/analysis_summary.json")
 
 # Create markdown report
 report_md = f"""# Student Dropout Prediction - Analysis Report
@@ -522,7 +522,7 @@ All visualizations have been saved to the `visualizations/` directory:
 with open('results/ANALYSIS_REPORT.md', 'w') as f:
     f.write(report_md)
 
-print("✓ Saved: results/ANALYSIS_REPORT.md")
+print("Saved: results/ANALYSIS_REPORT.md")
 
 # ==============================================================================
 # FINAL SUMMARY
@@ -530,12 +530,12 @@ print("✓ Saved: results/ANALYSIS_REPORT.md")
 print("\n" + "="*80)
 print("ANALYSIS COMPLETE!")
 print("="*80)
-print(f"\n📊 Dataset: {len(df_clean):,} students analyzed")
-print(f"🎯 Best Model: {best_model_name}")
-print(f"📈 AUC-ROC: {results_df.loc[best_model_name, 'AUC-ROC']:.4f}")
-print(f"🎨 Visualizations: 7 charts saved to visualizations/")
-print(f"💾 Models saved to models/")
-print(f"📄 Reports saved to results/")
-print(f"\n✅ All tasks completed successfully!")
+print(f"\nDataset: {len(df_clean):,} students analyzed")
+print(f"Best Model: {best_model_name}")
+print(f"AUC-ROC: {results_df.loc[best_model_name, 'AUC-ROC']:.4f}")
+print(f"Visualizations: 7 charts saved to visualizations/")
+print(f"Models saved to models/")
+print(f"Reports saved to results/")
+print(f"\nAll tasks completed successfully!")
 print(f"\nFinished at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
 print("="*80)

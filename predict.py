@@ -217,7 +217,7 @@ def main():
         # Load model
         print("Loading model...")
         model, scaler, feature_names = load_model_artifacts(args.model_dir)
-        print("✓ Model loaded successfully\n")
+        print("Model loaded successfully\n")
 
         # Choose mode
         if args.interactive:
