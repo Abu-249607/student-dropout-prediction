@@ -187,19 +187,37 @@ avoiding false alarms.
 
 *Full feature importance available in `results/feature_importance.csv`*
 
-## 📸 Sample Visualizations
+## 📸 Visualizations
 
-The analysis generates 7 professional visualizations saved in the `visualizations/` directory:
+### ROC Curve
 
-- **Target Distribution** - Class balance visualization
-- **Correlation Heatmap** - Feature relationship analysis
-- **Feature Comparison** - Dropout vs. Non-Dropout distributions
-- **Confusion Matrix** - Model prediction accuracy
-- **ROC Curve** - Model performance visualization (AUC: 0.869)
-- **Model Comparison** - Performance across all algorithms
-- **Feature Importance** - Top 20 predictive features
+How well the model separates dropouts from non-dropouts across every decision
+threshold. AUC of 0.869 against 0.500 for a coin flip.
 
-*View all visualizations in the `visualizations/` folder after running the analysis.*
+![ROC curve for the Gradient Boosting model, AUC 0.869](visualizations/05_roc_curve.png)
+
+### Feature Importance
+
+Which variables drive the prediction. First and second semester results
+dominate, which is what makes end-of-first-semester intervention viable.
+
+![Top 20 features ranked by logistic regression coefficient](visualizations/07_feature_importance.png)
+
+### Confusion Matrix
+
+Where the model is right and wrong on the 681-student test set.
+
+![Confusion matrix for the Gradient Boosting model](visualizations/04_confusion_matrix.png)
+
+### Model Comparison
+
+All four algorithms across accuracy, precision, recall, F1 and AUC-ROC.
+
+![Bar charts comparing the four models across five metrics](visualizations/06_model_comparison.png)
+
+Three more — target distribution, correlation heatmap, and feature
+distributions by dropout status — are in [`visualizations/`](visualizations/).
+All seven regenerate with `python run_analysis.py`.
 
 ## ⚙️ Installation
 
